@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Player/g4670.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Player/g4679.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Player/g4687.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Player/g4761.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Player/g4693.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Player/g4705.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Player/g4699.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Player/g5281.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Player/g5292.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Player/g5265.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Player/g5302.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Player/g5310.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Player/g5273.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -22,15 +21,10 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "Fall",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 1.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -38,10 +32,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 76 )
+radius = 32.0
+height = 88.0
 
 [node name="Player" type="KinematicBody2D" index="0"]
 
@@ -62,6 +57,5 @@ _sections_unfolded = [ "Material" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/g4761.png-628c7295a02aa77f4493a035a29056a5.stex"
+path="res://.import/g5265.png-3a0e8cf04aa193be93607d275e76bd7c.stex"
 
 [deps]
 
-source_file="res://sprites/Player/g4761.png"
-source_md5="99bad0d1bebaa68d3a63c380a061a405"
+source_file="res://sprites/Player/g5265.png"
+source_md5="c7978300869e4607c310d18368b80e17"
 
-dest_files=[ "res://.import/g4761.png-628c7295a02aa77f4493a035a29056a5.stex" ]
-dest_md5="9f7ad7e10aa5b41eca1948846adeaefe"
+dest_files=[ "res://.import/g5265.png-3a0e8cf04aa193be93607d275e76bd7c.stex" ]
+dest_md5="2a6401091a292265e44a2e5049416a15"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

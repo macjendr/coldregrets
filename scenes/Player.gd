@@ -4,7 +4,7 @@ const UP = Vector2(0, -1)
 const GRAVITY = 20
 const ACCELERATION = 50
 const MAX_SPEED = 200
-const JUMP_HEIGHT = -550
+const JUMP_HEIGHT = -500
 
 var motion = Vector2()
 
@@ -25,18 +25,16 @@ func _physics_process(delta):
 		friction = true
 	
 	if is_on_floor():
-		print($AnimatedSprite.animation)
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
 	else:
-		if motion.y <= 0:
-			$AnimatedSprite.play("Jump")
-		else:
+		if motion.y < 0:
+			print(motion.y)
 			$AnimatedSprite.play("Fall")
 		if friction == true:
-			motion.x = lerp(motion.x, 0, 0.05)
+			motion.x = lerp(motion.x, 0, 0.1)
 	
 	motion = move_and_slide(motion, UP)
 	pass
