@@ -23,6 +23,8 @@ func _input(event):
 				page += 1
 				set_bbcode(bb_format[0] + dialog[page] + bb_format[1])
 				set_visible_characters(0)
+			else:
+				get_tree().change_scene("res://scenes/StartScene.tscn")
 		else:
 			set_visible_characters(get_total_character_count())
 
