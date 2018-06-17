@@ -46,7 +46,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 1 )
-_sections_unfolded = [ "BBCode", "Theme" ]
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Timer" type="Timer" parent="." index="1"]
 
