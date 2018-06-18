@@ -31,10 +31,49 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.2)
 	else:
 		if motion.y < 0:
-			print(motion.y)
 			$AnimatedSprite.play("Fall")
 		if friction == true:
-			motion.x = lerp(motion.x, 0, 0.1)
+			motion.x = lerp(motion.x, 0, 0.05)
 	
 	motion = move_and_slide(motion, UP)
 	pass
+
+
+func _on_Freezing_timeout():
+#	$TempBar.value = healthState
+	if $TempBar.value > 0:
+		$TempBar.value -= 10
+	else:
+		$TempBar.value = 100
+		get_tree().change_scene("res://scenes/StartScene.tscn")
+#	print($TempBar.value)
+	
+	pass # replace with function body
+
+
+#func _on_toScene2_body_entered(body):
+##	print($TempBar.value)
+#	healthState = $TempBar.value
+#	pass # replace with function body
+#
+#
+#func _on_Scene2_tree_entered():
+#	$TempBar.value = healthState
+#	pass # replace with function body
+
+
+func _on_Beacon_body_entered(body):
+	if body.name == "Player":
+		print("enter")
+	#	$Freezing.one_shot = true
+		while $TempBar.value < 100:
+			$TempBar.value += 10
+	pass # replace with function body
+
+
+func _on_Beacon_body_exited(body):
+	if body.name == "Player":
+		print("leave")
+		$Freezing.one_shot = false
+	pass # replace with function body
+

@@ -1,22 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Player/g5281.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Player/g5292.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Player/g5265.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Player/g5265.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Player/g5281.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Player/g5292.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Player/g5302.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Player/g5310.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Player/g5273.png" type="Texture" id=7]
+[ext_resource path="res://health_styleboxflat.tres" type="StyleBox" id=8]
+[ext_resource path="res://hurt_styleboxflat.tres" type="StyleBox" id=9]
+[ext_resource path="res://scenes/TempBar.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "Phone",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "Walk",
 "speed": 5.0
@@ -24,11 +32,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -38,7 +41,7 @@ custom_solver_bias = 0.0
 radius = 32.0
 height = 88.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -52,10 +55,48 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 frames = SubResource( 1 )
 animation = "Idle"
 playing = true
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 2 )
+
+[node name="TempBar" type="ProgressBar" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -132.0
+margin_right = 32.0
+margin_bottom = -113.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 9 )
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+percent_visible = false
+script = ExtResource( 10 )
+_sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Percent", "Rect", "Theme", "Visibility", "custom_colors", "custom_styles" ]
+
+[node name="Freezing" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Freezing" to="." method="_on_Freezing_timeout"]
 
 

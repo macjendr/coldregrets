@@ -23,7 +23,7 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Invert", "Texture", "Transform", "Visibility", "Z Index" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
+[node name="Message" type="RichTextLabel" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -68,7 +68,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Clock2" type="RichTextLabel" parent="." index="3"]
+[node name="Author" type="RichTextLabel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -130,6 +130,8 @@ override_selected_font_color = false
 script = ExtResource( 5 )
 _sections_unfolded = [ "BBCode", "custom_fonts", "custom_styles" ]
 
-[connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="visibility_changed" from="." to="Message" method="_on_Polygon2D_visibility_changed"]
+
+[connection signal="timeout" from="Timer" to="Message" method="_on_Timer_timeout"]
 
 

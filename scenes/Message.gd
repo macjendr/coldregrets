@@ -11,10 +11,10 @@ var bb_format = [
 var page = 0
 
 # Functions
-func _ready():
-	set_process_input(true)
-	set_bbcode(bb_format[0] + dialog[page] + bb_format[1])
-	set_visible_characters(0)
+#func _ready():
+#	set_process_input(true)
+#	set_bbcode(bb_format[0] + dialog[page] + bb_format[1])
+#	set_visible_characters(0)
 
 func _input(event):
 	if Input.is_action_pressed("ui_accept"):
@@ -30,3 +30,10 @@ func _input(event):
 
 func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters()+1)
+
+
+func _on_Polygon2D_visibility_changed():
+	set_process_input(true)
+	set_bbcode(bb_format[0] + dialog[page] + bb_format[1])
+	set_visible_characters(0)
+	pass # replace with function body
