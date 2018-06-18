@@ -33,7 +33,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Scene2" type="Node" index="0"]
+[node name="Scene2" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -165,7 +165,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 540, 570 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 
 [connection signal="tree_entered" from="." to="Player" method="_on_Scene2_tree_entered"]

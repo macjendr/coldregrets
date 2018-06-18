@@ -2,8 +2,9 @@ extends RichTextLabel
 
 # Variables
 var dialog = [
-	"Everything was ok.",
-	"Then the storm came…"]
+	"Everything was ok, I was going to climb last little mountain to get to the hut.",
+	"Then the storm came...",
+	"...and I didn't finish that game at all :("]
 var bb_format = [
 "[center][font=res://fonts/indie_flower.tres][color=#000000]",
 "[/color][/font][/center]"
