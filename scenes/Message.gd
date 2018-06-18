@@ -2,8 +2,15 @@ extends RichTextLabel
 
 # Variables
 var dialog = [
-	"Everything was ok. Then the storm came…",
-	""]
+	"Ok, this is emabarrassing my little red-hooded friend...",
+	"Unfortunately I couldn't make it and your adventure ends here.",
+	"I wanted beautiful blizzard effects, eerie white noises around you, dramatic music, everything.",
+	"Instead I at least made that thing above your head telling you how cold it is and flat desingned 'storm' effect around you.",
+	"Maybe it's better, because you can sit comfortably in front of the fire.",
+	"I will try to come back to you after this jam and some sleep, don't you worry.",
+	"Thank you for experiencing my first chapter in my, I hope, long story with game development.",
+	"*Dramatic Jeremy-Soule-grade music and end titles, 100 on Metacritic, GOTY placeholder*"
+]
 var bb_format = [
 "[font=res://fonts/roboto_regular.tres][color=#FFFFFF]",
 "[/color][/font]"

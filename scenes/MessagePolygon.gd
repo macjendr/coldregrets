@@ -15,7 +15,13 @@ func _ready():
 #	pass
 
 
-func _on_Beacon_body_entered(body):
-	if body.name == "Player":
-		visible = true
-	pass # replace with function body
+#func _on_Beacon_body_entered(body):
+#	if body.name == "Player":
+#		visible = true
+#	pass # replace with function body
+
+
+#func _on_Beacon_body_exited(body):
+#	if body.name == "Player":
+#		visible = false
+#	pass # replace with function body

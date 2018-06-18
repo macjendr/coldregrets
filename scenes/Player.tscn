@@ -97,6 +97,15 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
+[node name="Warming" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="Freezing" to="." method="_on_Freezing_timeout"]
+
+[connection signal="timeout" from="Warming" to="." method="_on_Warming_timeout"]
 
 

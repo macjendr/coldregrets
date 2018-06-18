@@ -20,8 +20,15 @@ func _physics_process(delta):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.play("Walk")
+	elif Input.is_action_pressed("ui_read"):
+		if $MessageShape != null:
+			$AnimatedSprite.play("Phone")
+			$MessageShape.visible = true
+		friction = true
 	else:
 		$AnimatedSprite.play("Idle")
+		if $MessageShape != null:
+			$MessageShape.visible = false
 		friction = true
 	
 	if is_on_floor():
@@ -65,15 +72,25 @@ func _on_Freezing_timeout():
 func _on_Beacon_body_entered(body):
 	if body.name == "Player":
 		print("enter")
-	#	$Freezing.one_shot = true
-		while $TempBar.value < 100:
-			$TempBar.value += 10
+		$Freezing.stop()
+		$Warming.start()
+		$PhoneInfo.visible = true
 	pass # replace with function body
 
 
 func _on_Beacon_body_exited(body):
 	if body.name == "Player":
+#		$TempBar.value -= 10
+		$Freezing.start()
+		$Warming.stop()
+		$PhoneInfo.visible = false
 		print("leave")
-		$Freezing.one_shot = false
+		
 	pass # replace with function body
 
+
+
+func _on_Warming_timeout():
+	if $TempBar.value < 100:
+		$TempBar.value += 10
+	pass # replace with function body
